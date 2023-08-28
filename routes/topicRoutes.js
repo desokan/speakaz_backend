@@ -1,8 +1,8 @@
 import express from "express";
-import * as topicController from '../controllers/topicController.js'
+import * as topicController from "../controllers/topicController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.route('/').post(topicController.createTopic)
+router.route("/").post(topicController.createTopic);
 
-export default router
+export default router;
