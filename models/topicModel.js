@@ -10,8 +10,8 @@ const topicSchema = new mongoose.Schema({
     type: String,
     required: [true, "A topic must have a description"],
     maxlength: [
-      250,
-      "The description must have less than or equal to 250 characters",
+      350,
+      "The description must have less than or equal to 350 characters",
     ],
   },
   imageUrl: {

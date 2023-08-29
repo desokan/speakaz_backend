@@ -1,12 +1,14 @@
-import Topic from "../models/topicModel.js";
+import Speaker from "../models/speakerModel.js";
 
-export const createTopic = async (req, res) => {
+export const createSpeaker = async (req, res) => {
   try {
-    const newTopic = await Topic.create(req.body);
+    const newSpeaker = await Speaker.create(req.body);
+
+    console.log("newSpeaker", newSpeaker);
     res.status(201).json({
       status: "success",
       data: {
-        topic: newTopic,
+        speaker: newSpeaker,
       },
     });
   } catch (err) {
@@ -17,11 +19,11 @@ export const createTopic = async (req, res) => {
   }
 };
 
-export const getAllTopics = async (req, res) => {
+export const getAllSpeakers = async (req, res) => {
   try {
-    const topics = await Topic.find();
+    const speakers = await Topic.find();
 
-    if (topics.length === 0) {
+    if (speakers.length === 0) {
       return res.status(200).json({
         message: "No topic exist",
       });
@@ -29,9 +31,9 @@ export const getAllTopics = async (req, res) => {
 
     res.status(200).json({
       status: "success",
-      results: topics.length,
+      results: speakers.length,
       data: {
-        topics,
+        speakers,
       },
     });
   } catch (err) {
@@ -41,4 +43,3 @@ export const getAllTopics = async (req, res) => {
     });
   }
 };
-

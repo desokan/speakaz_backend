@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import topicRouter from "./routes/topicRoutes.js";
+import speakerRouter from "./routes/speakerRoutes.js";
 import cors from "cors";
 import rateLimiter from "express-rate-limit";
 
@@ -21,6 +22,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use("/topics", topicRouter);
+app.use("/speakers", speakerRouter);
 
 // ROUTES
 
