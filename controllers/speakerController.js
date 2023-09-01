@@ -3,8 +3,6 @@ import Speaker from "../models/speakerModel.js";
 export const createSpeaker = async (req, res) => {
   try {
     const newSpeaker = await Speaker.create(req.body);
-
-    console.log("newSpeaker", newSpeaker);
     res.status(201).json({
       status: "success",
       data: {
@@ -21,11 +19,11 @@ export const createSpeaker = async (req, res) => {
 
 export const getAllSpeakers = async (req, res) => {
   try {
-    const speakers = await Topic.find();
+    const speakers = await Speaker.find();
 
     if (speakers.length === 0) {
       return res.status(200).json({
-        message: "No topic exist",
+        message: "No speaker exist",
       });
     }
 
@@ -36,6 +34,7 @@ export const getAllSpeakers = async (req, res) => {
         speakers,
       },
     });
+    
   } catch (err) {
     res.status(400).json({
       status: "fail",
